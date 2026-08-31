@@ -1,4 +1,6 @@
 "use client";
+
+import { motion, AnimatePresence } from "motion/react";
 import tre_logo from "../public/tre_logo.png";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -10,61 +12,131 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: "Beranda", path: "/" },
-    { name: "Portofolio & Fasilitas", path: "/portofolio-fasilitas" },
-    { name: "Layanan", path: "/layanan" },
-    { name: "Galeri", path: "/galeri" },
+    { name: "Beranda", href: "/" },
+    { name: "Portofolio & Fasilitas", href: "/portofolio-fasilitas" },
+    { name: "Layanan", href: "/layanan" },
+    { name: "Galeri", href: "/galeri" },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, height: 0 },
+    show: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        height: { duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] },
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        height: { duration: 0.25, ease: "easeInOut" },
+        opacity: { duration: 0.15 },
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -12 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.25, ease: "easeOut" } 
+    },
+    exit: { opacity: 0, y: -8 },
+  };
+
   return (
-    <>
-      <nav className="flex justify-between">
-        <div className="flex">
-          {/* hamburger button buat yg mobile dulu */}
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+      <nav className="flex items-center justify-between px-6 py-4 md:px-[52px] md:py-[30px]">
+
+        <div className="flex items-center gap-3">
+
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex flex-col gap-1.5 lg:hidden cursor-pointer p-2"
+            className="flex flex-col justify-center gap-1.5 lg:hidden cursor-pointer p-1.5 focus:outline-none"
             aria-label="Toggle menu"
           >
             <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? "rotate-45 translate-y-2" : ""}`}
+              className={`w-6 h-0.5 bg-[#990011] transition-transform duration-300 origin-center ${
+                isOpen ? "rotate-45 translate-y-[7px]" : ""
+              }`}
             />
             <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? "opacity-0" : ""}`}
+              className={`w-6 h-0.5 bg-[#990011] transition-opacity duration-300 ${
+                isOpen ? "opacity-0" : "opacity-100"
+              }`}
             />
             <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              className={`w-6 h-0.5 bg-[#990011] transition-transform duration-300 origin-center ${
+                isOpen ? "-rotate-45 -translate-y-[7px]" : ""
+              }`}
             />
           </button>
 
-          {isOpen && (
-            <div>
-              <ul>
-                {navItems.map((item) => (
-                  <li key={item.name}>
-                    <Link href={item.path}>{item.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <Image src={tre_logo} alt="tre logo" className="w-[88px]" />
+          <Link href="/" className="flex items-center">
+            <Image src={tre_logo} alt="tre logo" className="w-[88px] h-auto md:w-[132px]" priority />
+          </Link>
         </div>
-        <button>
-            Kontak
-        </button>
+
+
+        <div className="hidden lg:flex items-center gap-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-3xl text-black hover:text-[#990011] transition-colors"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+
+        <Link
+          href="/#contact"
+          className="bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#e6b000] transition-colors text-xl md:text-4xl md:px-[60px] md:py-[8px]"
+        >
+          Kontak
+        </Link>
       </nav>
-    </>
+
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            className="overflow-hidden lg:hidden bg-[#1C1C1E]/95 backdrop-blur-xl border-b border-white/10"
+          >
+            <ul className="flex flex-col gap-3 px-6 py-5">
+              {navItems.map((item) => (
+                <motion.li key={item.name} variants={itemVariants}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-base font-light text-white/90 hover:text-white transition-colors block py-2 border-b border-white/5"
+                  >
+                    {item.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }
