@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import TentangKamiSection from "@/components/TentangKamiSection";
 import VisiDanMisiSection from "@/components/VisiDanMisiSection";
 import GallerySection from "@/components/GallerySection";
+import PartnersSection from "@/components/PartnersSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <TentangKamiSection />
         <VisiDanMisiSection />
         <GallerySection />
+        <PartnersSection />
       </div>
 
     </>
