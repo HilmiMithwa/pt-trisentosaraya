@@ -105,7 +105,7 @@ export default function Navbar() {
 
         <Link
           href="/#contact"
-          className="bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#e6b000] transition-colors text-xl md:text-4xl md:px-[60px] md:py-[8px]"
+          className="bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#990011]/80 transition-colors text-xl md:text-3xl md:px-[60px] md:py-[8px]"
         >
           Kontak
         </Link>
