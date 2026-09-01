@@ -35,27 +35,54 @@ export default function GallerySection() {
     <>
       <section className="w-full text-white">
         <div className="flex flex-col gap-[32px]">
-
           <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-4 md:gap-8 w-full">
-            <p className="text-xl max-w-[500px] md:text-lg">
+            <motion.p
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-xl max-w-[500px] md:text-lg"
+            >
               Bukti nyata dedikasi dan kualitas kami dalam menghadirkan solusi
               pengadaan barang serta jasa terpercaya.
-            </p>
+            </motion.p>
 
-            <div className="flex justify-start md:justify-end">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="flex justify-start md:justify-end"
+            >
               <h2 className="border-l-4 md:border-l-0 md:border-r-4 border-[#990011] pl-[7px] pr-[7px] md:pr-[12px] md:pl-0 text-2xl font-semibold md:text-3xl text-left md:text-right">
                 Galeri Kami
               </h2>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="w-full flex justify-center">
-            <button className="bg-[#990011] flex items-center px-[60px] py-[3px] rounded-[4px] md:px-[196px] md:py-[10px]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="w-full flex justify-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-[#990011] flex items-center px-[60px] py-[3px] rounded-[4px] md:px-[196px] md:py-[10px] cursor-pointer"
+            >
               <span className="text-xl">Lihat Semua</span>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
-          <div className="flex flex-col items-center gap-6 mt-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col items-center gap-6 mt-4"
+          >
             <div className="relative w-full max-w-[850px] flex items-center justify-center">
               <button
                 onClick={handlePrev}
@@ -135,7 +162,7 @@ export default function GallerySection() {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

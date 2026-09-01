@@ -44,12 +44,35 @@ export default function HeroSection() {
         </AnimatePresence>
 
         <div className="relative z-10 flex flex-col md:items-center md:justify-center h-full md:text-center text-white px-6 pt-16 gap-[14px] md:pt-0 max-w-4xl mx-auto">
-          <motion.h1 className="text-xl md:text-3xl">PT Trisentosa Raya Esolusi</motion.h1>
-          <motion.p className="text-3xl font-medium leading-relaxed md:text-4xl">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-xl md:text-3xl"
+          >
+            PT Trisentosa Raya Esolusi
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-3xl font-medium leading-relaxed md:text-4xl"
+          >
             Memenuhi kebutuhan pelanggan dengan jasa dan produk berkualitas.
           </motion.p>
-          <div className="flex gap-[16px]">
-            <div className="bg-[#990011] flex px-[26px] py-[12px] gap-[2px] rounded-[2px]">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="flex gap-[16px]"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#990011] flex px-[26px] py-[12px] gap-[2px] rounded-[2px]"
+            >
               <button className="text-base ">Layanan Kami</button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,8 +87,13 @@ export default function HeroSection() {
                 <line x1="7" y1="17" x2="17" y2="7" />
                 <polyline points="7 7 17 7 17 17" />
               </svg>
-            </div>
-            <div className="flex items-center gap-2">
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2"
+            >
               <button className="flex items-center gap-2 text-white font-medium">
                 <span>Lihat Portofolio</span>
 
@@ -87,8 +115,8 @@ export default function HeroSection() {
                   />
                 </svg>
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </>

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, Variants } from "motion/react";
 import Card from "./elements/Card";
 
 export default function VisiDanMisiSection() {
@@ -62,41 +65,88 @@ export default function VisiDanMisiSection() {
     },
   ];
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <>
       <section className="w-full text-white">
         <div className="flex flex-col gap-[32px]">
-          <div className="w-full text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="w-full text-center"
+          >
             <h2 className="inline-block border-b-4 border-[#990011] pb-2 text-2xl md:text-3xl font-semibold text-white tracking-wide">
               Visi dan Misi
             </h2>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch w-full">
-            <div className="px-[20px] py-[24px] md:px-[42px] bg-[#990011] flex items-center rounded-[2px] shadow-md">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="px-[20px] py-[24px] md:px-[42px] bg-[#990011] flex items-center rounded-[2px] shadow-md"
+            >
               <p className="text-lg md:text-xl font-normal leading-relaxed text-white">
                 Kami berkomitmen untuk memberikan kepuasan maksimal kepada semua
                 pelanggan kami. Kepuasan ini merupakan perwujudan dan landasan
-                bagi kami dalam menyediakan produk dan layanan berkualitas
-                tinggi yang sangat penting dan utama bagi para klien kami, guna
+                bagi kami dalam menyediakan produk dan layanan berkualitas tinggi
+                yang sangat penting dan utama bagi para klien kami, guna
                 mencapai kepuasan yang terjamin.
               </p>
-            </div>
+            </motion.div>
 
             <div className="flex flex-col justify-between gap-[24px]">
-              <p className="text-base text-center md:text-right  md:text-lg">
+              <motion.p
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="text-base text-center md:text-right md:text-lg"
+              >
                 Untuk meningkatkan kualitas produk dan layanan kepada seluruh
                 klien kami yang sangat berharga, kami menerapkan misi perusahaan
                 yang meliputi:
-              </p>
+              </motion.p>
 
-              <div className="flex flex-col gap-[22px] justify-between flex-1">
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-col gap-[22px] justify-between flex-1"
+              >
                 {misi.map((item, index) => (
-                  <div key={index} className="flex-1 flex">
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="flex-1 flex"
+                  >
                     <Card icon={item.icon} description={item.description} />
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, Variants } from "motion/react";
 import tre_logo from "../public/tre_logo.png";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -9,7 +9,6 @@ import Image from "next/image";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +25,7 @@ export default function Navbar() {
     { name: "Galeri", href: "/galeri" },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, height: 0 },
     show: {
       opacity: 1,
@@ -47,7 +46,7 @@ export default function Navbar() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: -12 },
     show: { 
       opacity: 1, 
@@ -63,7 +62,8 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
 
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col justify-center gap-1.5 lg:hidden cursor-pointer p-1.5 focus:outline-none"
             aria-label="Toggle menu"
@@ -83,10 +83,12 @@ export default function Navbar() {
                 isOpen ? "-rotate-45 -translate-y-[7px]" : ""
               }`}
             />
-          </button>
+          </motion.button>
 
           <Link href="/" className="flex items-center">
-            <Image src={tre_logo} alt="tre logo" className="w-[88px] h-auto md:w-[88px]" priority />
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Image src={tre_logo} alt="tre logo" className="w-[88px] h-auto md:w-[88px]" priority />
+            </motion.div>
           </Link>
         </div>
 
@@ -96,20 +98,25 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-xl text-black hover:text-[#990011] transition-colors"
+              className="relative text-xl text-black hover:text-[#990011] transition-colors group py-1"
             >
               {item.name}
+              <motion.span
+                className="absolute bottom-0 left-0 w-full h-[2px] bg-[#990011] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              />
             </Link>
           ))}
         </div>
 
 
-        <Link
-          href="/#contact"
-          className="bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#990011]/80 transition-colors text-xl md:text-base md:px-[40px] md:py-[5px]"
-        >
-          Kontak
-        </Link>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Link
+            href="/#contact"
+            className="inline-block bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#990011]/80 transition-colors text-xl md:text-base md:px-[40px] md:py-[5px]"
+          >
+            Kontak
+          </Link>
+        </motion.div>
       </nav>
 
 
