@@ -9,6 +9,7 @@ import Image from "next/image";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
 
   useEffect(() => {
     const handleScroll = () => {
