@@ -58,7 +58,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <nav className="flex items-center justify-between px-6 py-4 md:px-[52px] md:py-[30px]">
+      <nav className="flex items-center justify-between px-6 py-4 md:px-[48px] md:py-[24px] container mx-auto">
 
         <div className="flex items-center gap-3">
 
@@ -85,7 +85,7 @@ export default function Navbar() {
           </button>
 
           <Link href="/" className="flex items-center">
-            <Image src={tre_logo} alt="tre logo" className="w-[88px] h-auto md:w-[132px]" priority />
+            <Image src={tre_logo} alt="tre logo" className="w-[88px] h-auto md:w-[88px]" priority />
           </Link>
         </div>
 
@@ -95,7 +95,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-3xl text-black hover:text-[#990011] transition-colors"
+              className="text-xl text-black hover:text-[#990011] transition-colors"
             >
               {item.name}
             </Link>
@@ -105,7 +105,7 @@ export default function Navbar() {
 
         <Link
           href="/#contact"
-          className="bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#990011]/80 transition-colors text-xl md:text-3xl md:px-[60px] md:py-[8px]"
+          className="bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#990011]/80 transition-colors text-xl md:text-base md:px-[40px] md:py-[5px]"
         >
           Kontak
         </Link>
@@ -119,7 +119,7 @@ export default function Navbar() {
             initial="hidden"
             animate="show"
             exit="exit"
-            className="overflow-hidden lg:hidden bg-[#1C1C1E]/95 backdrop-blur-xl border-b border-white/10"
+            className="overflow-hidden lg:hidden bg-[#1C1C1E]/95 backdrop-blur-xl border-b border-white/10 absolute top-full left-0 w-full"
           >
             <ul className="flex flex-col gap-3 px-6 py-5">
               {navItems.map((item) => (
