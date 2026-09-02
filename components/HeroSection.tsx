@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import Link from "next/link";
 
 export default function HeroSection() {
   const heroSectionImage = [
@@ -94,7 +95,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2"
             >
-              <button className="flex items-center gap-2 text-white font-medium">
+              <Link href="portofolio-fasilitas" className="flex items-center gap-2 text-white font-medium" >
                 <span>Lihat Portofolio</span>
 
                 <svg
@@ -114,7 +115,7 @@ export default function HeroSection() {
                     d="m8 4l8 8l-8 8"
                   />
                 </svg>
-              </button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
