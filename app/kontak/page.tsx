@@ -19,31 +19,33 @@ export default function Home() {
   ];
 
   return (
-    <section className="flex flex-col container mx-auto px-4 py-10 md:px-16 md:py-20 gap-[30px] md:gap-[100px] text-white">
+    <section className="flex flex-col container mx-auto px-4 py-10 md:px-16 md:py-20 gap-[30px] md:gap-[80px] text-white">
       <div className="flex flex-col gap-[36px]">
         <h2 className="text-2xl font-semibold md:text-3xl text-center">
           Kontak Kami
         </h2>
 
-        <div>
-          <GoogleMap />
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+          <div className="w-full h-full min-h-[350px] overflow-hidden rounded-md shadow-md border border-white/10">
+            <GoogleMap />
+          </div>
 
-        <div className="grid grid-cols-1 gap-4 items-stretch">
-          {contactList.map((item, index) => (
-            <div
-              key={index}
-              className="flex bg-[#990011] text-base px-[20px] py-[10px]"
-            >
-              <p className="font-bold pr-[8px]">{item.label}</p>
-              <p>{item.value}</p>
-            </div>
-          ))}
+          <div className="flex flex-col gap-4 justify-between h-full">
+            {contactList.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center bg-[#990011] text-base px-6 py-5 rounded-md shadow-md hover:bg-[#80000e] transition-colors duration-200 h-full border border-white/5 text-center"
+              >
+                <p className="text-white/90 leading-relaxed">
+                  <span className="font-bold">{item.label}</span>
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <ContactUs />
-
-        
       </div>
     </section>
   );
