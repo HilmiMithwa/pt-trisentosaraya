@@ -13,7 +13,7 @@ export default function LayananKami() {
           className="flex flex-col gap-[12px] text-center max-w-4xl mx-auto"
         >
           <h2 className="text-2xl font-semibold md:text-3xl">Layanan Kami</h2>
-          <p className="text-base md:text-xl text-gray-300 leading-relaxed">
+          <p className="text-base md:text-xl  leading-relaxed">
             Sebagai perusahaan perdagangan barang dan jasa, kami berkomitmen
             menjadi mitra rantai pasok yang andal dan terpercaya, menghadirkan
             solusi pengadaan end-to-end yang efisien untuk bisnis dan instansi

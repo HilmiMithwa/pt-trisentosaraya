@@ -140,7 +140,7 @@ export default function PortofolioSection() {
             <h2 className="text-2xl font-semibold md:text-3xl">
               Portofolio Kami
             </h2>
-            <p className="text-base md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-base md:text-xl  leading-relaxed">
               Setiap proyek adalah pembuktian atas dedikasi kami dalam
               menghadirkan solusi operasional yang responsif dan terukur. Kami
               bangga telah dipercaya oleh berbagai instansi dan perusahaan dalam
