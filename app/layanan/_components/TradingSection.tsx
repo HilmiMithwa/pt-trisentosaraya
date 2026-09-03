@@ -67,6 +67,7 @@ export default function TradingSection() {
     },
   ];
 
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
