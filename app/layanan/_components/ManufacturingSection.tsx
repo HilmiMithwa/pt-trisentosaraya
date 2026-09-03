@@ -13,7 +13,7 @@ export default function ManufacturingSection() {
         className="flex flex-col gap-[14px] order-1 md:order-2"
       >
         <h2 className="border-l-4 md:border-l-0 md:border-r-4 border-[#990011] pl-[7px] pr-[7px] md:pr-[12px] md:pl-0 text-2xl font-semibold md:text-3xl text-left md:text-right">
-          Galeri Kami
+          Manufacturing
         </h2>
         <p className="leading-relaxed text-base md:text-2xl text-left md:text-right">
           Produk meliputi komponen untuk mesin otomotif, tekstil, pabrik

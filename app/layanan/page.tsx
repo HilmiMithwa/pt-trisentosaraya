@@ -1,6 +1,7 @@
 import LayananKami from "./_components/LayananKami"
 import MachiningSection from "./_components/MachiningSection"
 import ManufacturingSection from "./_components/ManufacturingSection"
+import TradingSection from "./_components/TradingSection"
 
 export default function Home() {
     return (
@@ -9,6 +10,7 @@ export default function Home() {
             <LayananKami />
             <MachiningSection />
             <ManufacturingSection />
+            <TradingSection />
         </div>
         
 
