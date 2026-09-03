@@ -111,7 +111,7 @@ export default function Navbar() {
 
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link
-            href="/#contact"
+            href="/kontak"
             className="inline-block bg-[#990011] text-white px-[30px] py-[3px] rounded-[2px] font-medium hover:bg-[#990011]/80 transition-colors text-xl md:text-base md:px-[40px] md:py-[5px]"
           >
             Kontak
