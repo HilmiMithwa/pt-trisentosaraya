@@ -1,4 +1,7 @@
+"use client";
+
 import Card from "@/components/elements/Card";
+import { motion, Variants } from "motion/react";
 
 export default function TradingSection() {
   const tradingList = [
@@ -64,24 +67,59 @@ export default function TradingSection() {
     },
   ];
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className="w-full text-white">
       <div className="flex flex-col items-center justify-center gap-8">
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center"
+        >
           <h2 className="inline-block border-b-[3px] border-[#990011] pb-2 text-2xl md:text-3xl font-semibold text-white tracking-wide">
             Trading
           </h2>
           <p className="leading-relaxed text-base md:text-xl mt-4 text-white/90">
             Menyediakan kebutuhan sparepart, tools, dan safety equipment industri.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Pembungkus List Card */}
-        <div className="flex flex-col gap-4 w-full max-w-3xl">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex flex-col gap-4 w-full max-w-3xl"
+        >
           {tradingList.map((item, index) => (
-            <Card key={index} icon={item.icon} description={item.description} />
+            <motion.div key={index} variants={cardVariants}>
+              <Card icon={item.icon} description={item.description} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
