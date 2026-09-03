@@ -36,7 +36,7 @@ export default function Home() {
                 key={index}
                 className="flex items-center justify-center bg-[#990011] text-base px-6 py-5 rounded-md shadow-md hover:bg-[#80000e] transition-colors duration-200 h-full border border-white/5 text-center"
               >
-                <p className="text-white/90 leading-relaxed">
+                <p className="text-white/90 leading-relaxed text-xl">
                   <span className="font-bold">{item.label}</span>
                   {item.value}
                 </p>

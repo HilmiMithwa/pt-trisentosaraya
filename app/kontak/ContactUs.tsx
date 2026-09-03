@@ -87,7 +87,7 @@ export default function ContactUs() {
           </div>
         </div>
 
-        {/* Row 2: Subjek */}
+
         <div className="flex flex-col gap-2">
           <label htmlFor="subject" className="text-base font-medium text-white">
             Subjek:
@@ -100,7 +100,7 @@ export default function ContactUs() {
           />
         </div>
 
-        {/* Row 3: Pesan */}
+      
         <div className="flex flex-col gap-2">
           <label htmlFor="message" className="text-base font-medium text-white">
             Pesan:
@@ -114,7 +114,7 @@ export default function ContactUs() {
           />
         </div>
 
-        {/* Notifikasi Status */}
+
         {status && (
           <p
             className={`text-center text-sm font-medium ${
