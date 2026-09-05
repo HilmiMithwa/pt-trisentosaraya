@@ -74,7 +74,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="bg-[#990011] flex px-[26px] py-[12px] gap-[2px] rounded-[2px]"
             >
-              <button className="text-base ">Layanan Kami</button>
+              <Link href="/layanan" className="text-base ">Layanan Kami</Link>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     
     const mailOptions = {
       from: `"${name}" <${process.env.SMTP_USER}>`, 
-      to: "hilmimithwa@gmail.com",               
+      to: "cs@trisentosaraya.co.id",               
       replyTo: email,                              
       subject: `[Website Message] ${subject || "Pesan Baru"}`,
       html: `

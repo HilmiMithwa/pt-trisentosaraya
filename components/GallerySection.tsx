@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
+import Link from "next/link";
 
 export default function GallerySection() {
   const galleryCarousel = [
@@ -23,7 +24,7 @@ export default function GallerySection() {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? galleryCarousel.length - 1 : prevIndex - 1
+      prevIndex === 0 ? galleryCarousel.length - 1 : prevIndex - 1,
     );
   };
 
@@ -72,7 +73,9 @@ export default function GallerySection() {
               whileTap={{ scale: 0.97 }}
               className="bg-[#990011] flex items-center px-[60px] py-[3px] rounded-[4px] md:px-[196px] md:py-[10px] cursor-pointer"
             >
-              <span className="text-xl">Lihat Semua</span>
+              <Link href="/galeri">
+                <span className="text-xl">Lihat Semua</span>
+              </Link>
             </motion.button>
           </motion.div>
 

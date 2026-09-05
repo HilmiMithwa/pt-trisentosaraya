@@ -5,10 +5,10 @@ import Image from "next/image";
 
 export default function Footer() {
   const navList = [
-    { name: "Tentang Kami", href: "#tentang" },
-    { name: "Visi dan Misi", href: "#visimisi" },
-    { name: "Galeri Kami", href: "galeri" },
-    { name: "Partners", href: "partners" },
+    { name: "Beranda", href: "/" },
+    { name: "Portofolio & Fasilitas", href: "/portofolio-fasilitas" },
+    { name: "Layanan", href: "/layanan" },
+    { name: "Galeri", href: "/galeri" },
   ];
 
   return (
